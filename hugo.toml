@@ -1,0 +1,69 @@
+baseURL = "https://adityadivekar03.github.io/adityadivekar/"
+languageCode = "en-us"
+title = "Aditya Divekar"
+theme = "PaperMod"
+canonifyURLs = true
+
+paginate = 10
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[minify]
+  disableXML = true
+
+[params]
+  env = "production"
+  title = "Aditya Divekar"
+  description = "Notes on research, implementations, and other pursuits."
+  keywords = ["blog", "research", "optimization", "finance", "math"]
+  author = "Aditya Divekar"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = false
+  disableSpecial1stPost = true
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+
+  # No cover images / graphics anywhere
+  [params.homeInfoParams]
+    Title = "Aditya Divekar"
+    Content = "Notes on research, implementations, and other things I find interesting. First up: an implementation of *Tax-Aware Portfolio Construction via Convex Optimization* (Moehle et al.)."
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/adityadivekar03"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true          # allow raw HTML (needed for some KaTeX/markdown edge cases)
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['\[', '\]'], ['$$', '$$']]
+        inline = [['\(', '\)'], ['$', '$']]
+  [markup.highlight]
+    noClasses = false        # use CSS classes so we can theme code blocks ourselves
+    style = "monokai"
+    codeFences = true
+    lineNos = false
+
+[menu]
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 20
