@@ -4,11 +4,13 @@ title = "Aditya Divekar"
 theme = "PaperMod"
 canonifyURLs = true
 
-paginate = 10
 enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
 buildExpired = false
+
+[pagination]
+  pagerSize = 10
 
 [minify]
   disableXML = true
