@@ -2,3 +2,16 @@ public/
 resources/_gen/
 .hugo_build.lock
 .DS_Store
+
+# Implementation code kept private — the site repo is public
+code/
+.idea/
+.venv/
+code/.venv/
+code/**/__pycache__/
+code/**/*.pyc
+code/tax_aware/results/*
+!code/tax_aware/results/.gitkeep
+
+# stray empty test dir left by tooling (delete locally when convenient)
+content/posts/convex-envelopes/

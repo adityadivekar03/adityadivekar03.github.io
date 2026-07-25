@@ -34,10 +34,10 @@ buildExpired = false
   showtoc = true
   tocopen = false
 
-  # No cover images / graphics anywhere
+  # Homepage: a single quote above the post cards. No bio, no intro.
   [params.homeInfoParams]
-    Title = "Aditya Divekar"
-    Content = "Notes on research, implementations, and other things I find interesting. First up: an implementation of *Tax-Aware Portfolio Construction via Convex Optimization* (Moehle et al.)."
+    Title = "“Writing is nature’s way of letting you know how sloppy your thinking is.”"
+    Content = "— Dick Guindon"
 
 [[params.socialIcons]]
   name = "github"
@@ -57,13 +57,3 @@ buildExpired = false
     style = "monokai"
     codeFences = true
     lineNos = false
-
-[menu]
-  [[menu.main]]
-    name = "Posts"
-    url = "/posts/"
-    weight = 10
-  [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 20

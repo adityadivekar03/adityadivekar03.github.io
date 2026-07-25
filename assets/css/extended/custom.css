@@ -52,3 +52,36 @@ pre {
 .profile img {
   display: none;
 }
+
+/* Homepage: a small, quiet epigraph instead of a big hero heading.
+   The quote is the homeInfoParams Title (an <h1>); the attribution is
+   the Content. Collapse the tall hero block and shrink the type. */
+.first-entry.home-info {
+  min-height: unset;
+  padding: calc(var(--gap) * 0.5) 0;
+}
+.home-info .entry-header h1 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--secondary);
+  margin: 0;
+}
+.home-info .entry-content {
+  font-size: 0.75rem;
+  color: var(--secondary);
+  margin-top: 0.3rem;
+}
+
+/* Site title in the header: smaller and lighter, not a big bold brand */
+.logo a {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* No nav menu — the name/logo is the only nav (it links home). This also
+   hides the stale "Posts" item if hugo server hasn't reloaded the config. */
+#menu {
+  display: none;
+}
