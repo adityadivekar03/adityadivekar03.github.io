@@ -63,7 +63,7 @@ pre {
 .home-info .entry-header h1 {
   font-size: 0.9rem;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.5;
   color: var(--secondary);
   margin: 0;

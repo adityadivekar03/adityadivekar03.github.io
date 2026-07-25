@@ -36,10 +36,10 @@ buildExpired = false
   showtoc = true
   tocopen = false
 
-  # Homepage: a single quote above the post cards. No bio, no intro.
+  # Homepage: a short tagline above the post cards. No bio, no intro.
   [params.homeInfoParams]
-    Title = "“Writing is nature’s way of letting you know how sloppy your thinking is.”"
-    Content = "— Dick Guindon"
+    Title = "Notes on things I wanted to understand better by writing them down"
+    Content = ""
 
 [markup]
   [markup.goldmark]
