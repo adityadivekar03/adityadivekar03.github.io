@@ -41,10 +41,6 @@ buildExpired = false
     Title = "“Writing is nature’s way of letting you know how sloppy your thinking is.”"
     Content = "— Dick Guindon"
 
-[[params.socialIcons]]
-  name = "github"
-  url = "https://github.com/adityadivekar03"
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

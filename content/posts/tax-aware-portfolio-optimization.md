@@ -12,7 +12,7 @@ Tax-aware rebalancing adds realized tax to a portfolio rebalancing problem. The 
 
 Adding tax-loss harvesting to a standard Markowitz-style objective introduces a nonconvex kink. The paper handles it with a two-step optimization program, starting with a convex envelope.
 Selling a stock lot can realize either a tax liability (sold at a gain) or a tax benefit (sold at a loss).
-Buying has no tax cost. That asymmetry shows up at zero i.e. at the sign flip of the trade, making the tax term a nonconvex function of the traded amount.
+Buying has no tax cost. That asymmetry shows up at zero, i.e. at the sign flip of the trade, making the tax term a nonconvex function of the traded amount.
 
 ### Non-convexity of tax term
 
@@ -100,7 +100,9 @@ Write $F$ for the original objective and $F^{**}$ for the relaxed one. The two-s
 
 $$\hat{u} = \mathop{\arg\min}_u F^{**}(u), \qquad z_i = \operatorname{sign}(\hat{u}_i), \qquad u^+ = \mathop{\arg\min}_u F(u) \quad \text{subject to} \quad z_i u_i \geq 0.$$ 
 
-The relaxed solution chooses a direction for each trade. Once buys and sells are fixed, the original problem is convex again since the kink at zero is gone. On my toy problem this two-step process recovered the true optimum exactly — checked against a brute-force search over every buy/sell combination.
+The relaxed solution chooses a direction for each trade. Once buys and sells are fixed, the original problem is convex again since the kink at zero is gone. 
+On the toy problem this two-step process recovered the true optimum, checked against a brute-force search over every buy/sell combination.
 
-The nonconvexity came from a buy-or-sell choice hiding at $u_i = 0$. 
-I suspect this is the reusable part: when a portfolio constraint is only hard because a trade can go either direction, solve the envelope version first and use it to decide which side of zero each trade belongs on.  
+The nonconvexity came from the buy/sell choice at $u_i = 0$. 
+This can be the reusable part: when a portfolio constraint is hard because a trade can go either direction, solve the envelope version first and use it to decide which side of zero each trade belongs on.  
+Of course, we need to compare this two-step approach against an appropriate benchmark to evaluate the quality of the solution before employing it.      
