@@ -60,7 +60,8 @@ bridge the small concave region around zero and leaves everything else alone. Co
 
 ### ConvexHull
 
-Sample $f_i$ on a grid, take the convex hull, keep the lower chain:
+In terms of code, we sample $f_i$ on a grid. Next, take the convex hull of this grid and then keep the lower surface of 
+this hull. 
 
 ```python
 from scipy.spatial import ConvexHull
@@ -72,16 +73,19 @@ def convex_envelope(x, f):
     v = hull.vertices                        # hull points, counter-clockwise
     lo, hi = np.argmin(pts[v, 0]), np.argmax(pts[v, 0])
     v = np.roll(v, -lo)                       # start at the leftmost point
-    lower = v[: ((hi - lo) % len(v)) + 1]     # ...walk round to the rightmost
+    lower = v[: ((hi - lo) % len(v)) + 1]     # walk to the rightmost
     lower = lower[np.argsort(pts[lower, 0])]
     return np.interp(x, pts[lower, 0], pts[lower, 1])
 ```
 
 The SciPy function `ConvexHull` constructs the convex envelope for us.
 The vertices are returned counter-clockwise, so starting at the leftmost point and walking to the rightmost traces the 
-bottom of the hull: the lower envelope we want. Interpolating at the points of the original curve gives the envelope values at the original `x` points. 
+bottom of the hull which is the lower envelope we want. 
+Interpolating at the points of the original curve gives the envelope values at the original `x` points. 
 
-To test this, I used the mixed-lot asset from a toy six-asset account. The account is about 1.20M dollars including cash; this asset is a 222K dollar position. Its lots are:
+To test this, I used a toy six-asset account with mixed gain/loss asset lots. 
+The account is seeded with 1.20M dollars distributed unevenly across the 6 assets. 
+The particular asset below is a 222K dollar position. Its lots are:
 
 | Lot | Dollar value | Effective tax rate |
 | --- | ---: | ---: |
@@ -103,6 +107,6 @@ $$\hat{u} = \mathop{\arg\min}_u F^{**}(u), \qquad z_i = \operatorname{sign}(\hat
 The relaxed solution chooses a direction for each trade. Once buys and sells are fixed, the original problem is convex again since the kink at zero is gone. 
 On the toy problem this two-step process recovered the true optimum, checked against a brute-force search over every buy/sell combination.
 
-The nonconvexity came from the buy/sell choice at $u_i = 0$. 
+The nonconvexity came from the buy/sell choice at $u_i = 0$.<br> 
 This can be the reusable part: when a portfolio constraint is hard because a trade can go either direction, solve the envelope version first and use it to decide which side of zero each trade belongs on.  
 Of course, we need to compare this two-step approach against an appropriate benchmark to evaluate the quality of the solution before employing it.      
