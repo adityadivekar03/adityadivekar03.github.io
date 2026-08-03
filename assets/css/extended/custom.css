@@ -48,6 +48,34 @@ pre {
   margin-top: 1.6em;
 }
 
+/* Keep paired benchmark panels compact while preserving mobile readability. */
+.benchmark-panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.benchmark-panels img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.benchmark-figure figcaption {
+  margin-top: 0.6rem;
+  color: var(--secondary);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .benchmark-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Remove theme's default profile-mode image circle if unused */
 .profile img {
   display: none;
