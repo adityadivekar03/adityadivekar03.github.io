@@ -41,6 +41,9 @@ buildExpired = false
     Title = "Notes on things I wanted to understand better by writing them down"
     Content = ""
 
+  [params.analytics.google]
+    SiteVerificationTag = "YFu13QWufrG6Wc29qk_DxsDNQbZLCiPMyk5ZIuoWn5c"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

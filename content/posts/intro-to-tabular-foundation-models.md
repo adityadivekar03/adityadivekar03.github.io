@@ -3,7 +3,7 @@ title: "Tabular Foundation Models"
 date: 2026-08-01
 draft: false
 tags: ["machine-learning", "tabular-data", "foundation-models"]
-#summary: ""
+summary: "An introduction to how tabular foundation models use pretraining and in-context learning, illustrated through OLS and a TabPFN example."
 showtoc: false
 ---
 
